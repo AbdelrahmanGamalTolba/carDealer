@@ -1,0 +1,69 @@
+[
+{
+  "Id":1,
+  "SellRent":1,
+  "Brand":"BMW",
+  "Price":20000,
+  "Image":"bmw",
+  "SellRentOpt":"Rent",
+  "CarLabel":"New",
+  "KiloMeter":0,
+  "Modelyear":2021
+},
+{
+  "Id":2,
+  "SellRent":1,
+  "Brand":"Kia",
+  "Price":10000,
+  "Image":"kia",
+  "SellRentOpt":"Sell",
+  "CarLabel":"Used",
+  "KiloMeter":60000,
+  "Modelyear":2014
+},
+{
+  "Id":3,
+  "SellRent":1,
+  "Brand":"Mercedes",
+  "Price":30000,
+  "SellRentOpt":"Rent",
+  "Image":"mercedes",
+  "CarLabel":"New",
+  "KiloMeter":0,
+  "Modelyear":2020
+},
+{
+  "Id":4,
+  "SellRent":2,
+  "Brand":"Chevorlet",
+  "Price":3500,
+  "SellRentOpt":"Sell",
+  "Image":"chevorlet",
+  "CarLabel":"New",
+  "KiloMeter":50000,
+  "Modelyear":1997
+
+},
+{
+  "Id":5,
+  "SellRent":2,
+  "Brand":"Fiat",
+  "Price":15000,
+  "SellRentOpt":"Sell",
+  "Image":"fiat",
+  "CarLabel":"used",
+  "KiloMeter":50000,
+  "Modelyear":2000
+},
+{
+  "Id":6,
+  "SellRent":1,
+  "Brand":"hyundai",
+  "Price":45000,
+  "SellRentOpt":"Rent",
+  "CarLabel":"used",
+  "KiloMeter":50000,
+  "Modelyear":2012
+
+}
+]

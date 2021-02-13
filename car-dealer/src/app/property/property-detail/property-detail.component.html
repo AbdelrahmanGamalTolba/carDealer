@@ -1,0 +1,110 @@
+<div class="row shadow">
+  <div class="col-sm-4 p-0">
+    <div class="card">
+      <div class="card-img-wrapper">
+        <img *ngIf="property.Image" class="card-img-top" src="assets/images/{{property.Image}}.jpg">
+        <img *ngIf="!property.Image" class="card-img-top" src="assets/images/car-default.png">
+      </div>
+      <div class="card-body">
+        <h1 class="card-title">{{property.Brand}}</h1>
+        <div>
+            <strong>For {{property.SellRentOpt}} Status {{property.CarLabel}} @ LE {{property.Price}}</strong>
+        </div>
+        <div>
+           <strong>in {{property.Modelyear}}</strong>
+        </div> <hr>
+        <div>
+            <strong>KiloMeters: </strong>
+            {{property.KiloMeter}} Km
+        </div>
+
+
+      </div>
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-primary">Like</button>
+          <button class="btn btn-success">Message</button>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-sm-8 p-0">
+    <div class="tab-panel">
+      <tabset class="member-tabset">
+        <tab heading="Overview">
+          <h1>Overview</h1>
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>Brand Name</strong>
+                      <p>{{property.Brand}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Status</strong>
+                      <p>{{property.CarLabel}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>For</strong>
+                      <p>{{property.SellRentOpt}}</p>
+                  </div>
+
+                  <!-- <div class="heading">
+                      <strong>Posession</strong>
+                      <p>{{property.Price}}</p>
+                  </div> -->
+              </div>
+
+              <div class="col-sm-6">
+                  <div class="heading">
+                      <strong>KiloMeter</strong>
+                      <p>{{property.KiloMeter}}</p>
+                  </div>
+
+                  <div class="heading">
+                      <strong>Manufactured in</strong>
+                      <p>{{property.Modelyear}}</p>
+                  </div>
+
+                  <!-- <div class="heading">
+                      <strong>Security Deposit</strong>
+                      <p>{{property.CarLabel}}</p>
+                  </div> -->
+                  <!-- <div class="heading">
+                      <strong>Maintenance</strong>
+                      <p>{{property.SellRentOpt}}</p>
+                  </div> -->
+              </div>
+              <div class="col-sm-12">
+                  <div class="heading">
+                      <strong>Price</strong>
+                      <p>{{property.Price}}</p>
+                  </div>
+              </div>
+            </div>
+        </tab>
+        <!-- <tab heading="Address">
+          <div class="col-sm-12">
+            <h1>Address</h1>
+            <div class="heading">
+                <strong>{{property.Brand}}</strong><br/>
+                <strong>{{property.KiloMeter}}</strong><br/>
+                <strong>{{property.Price}}</strong>
+            </div>
+        </div>
+
+        </tab> -->
+        <tab heading="Photos">
+          <h1>Photos</h1>
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+
+        </tab>
+        <tab heading="Contact">
+          <h1>Contact Detail</h1>
+          This should be restricted area and only registered user should be able to see seller contact details
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

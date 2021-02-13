@@ -1,0 +1,122 @@
+<div class="row mb-5">
+  <div class="col-8 shadow-lg p-0 bg-white">
+    <div class="card">
+    <div class="card-header">
+       <h3> List Your Car</h3>
+    </div>
+    <div class="card-body">
+    <form (ngSubmit)='onSubmit()' [formGroup]="addCarForm">
+
+      <div class="tab-panel">
+        <tabset class="member-tabset" #formTabs>
+          <tab heading="Basic Info" formGroupName="BasicInfo" >
+            <div class="form-group col-12">
+            <p> I want to</p>
+            <div class="btn-group" btnRadioGroup formControlName="SellRentOpt"
+             [(ngModel)]="carView.SellRentOpt">
+              <label class="btn btn-outline-primary mr-2"
+              btnRadio="Sell" role="button" formControlName="SellRentOpt">Sell</label>
+
+              <label class="btn btn-outline-primary"
+              btnRadio="Rent" role="button" formControlName="SellRentOpt">Rent</label>
+            </div>
+            <div class="error-block" *ngIf="SellRentOpt.invalid && Nextclicked">
+              Please select sell or rent
+            </div>
+            </div>
+            <!-- <input type="text" [ngModel]="carView.SellRent" [ngModelOptions]="{standalone: true}"> -->
+
+
+            <div class="form-group col-12">
+              <label for="brand">Brand</label>
+              <select type="text" class="form-control"  formControlName="Brand"
+              [(ngModel)]="carView.Brand">
+              <option  value="">--Select Brand--</option>
+              <option *ngFor="let c of CarList"
+              value="{{c.id}}">{{c.brand}}</option>
+              </select>
+            <div class="error-block"
+            *ngIf="Brand.invalid && (Nextclicked || Brand.touched)">
+              Please Enter Brand
+            </div>
+          </div>
+            <div class="form-group col-12" >
+              <label for="price">Price</label>
+              <input type="text" class="form-control"  formControlName="Price"
+               [(ngModel)]="carView.Price">
+            <div class="error-block"
+            *ngIf="Price.invalid && (Nextclicked || Price.touched)">
+              Please Enter Price
+            </div>
+          </div>
+              <button  type="button" class="btn btn-primary btn-block"
+                (click)="selectTab(1, BasicInfo.valid)">Next</button>
+
+          </tab>
+          <tab heading="CarDetails" formGroupName="CarDetails">
+            <div class="form-group col-12" name="label">
+              <label>Car's Label</label><br/>
+              <input type="radio" id='Yes' value='New' formControlName="CarLabel"  [(ngModel)]="carView.CarLabel">
+              <label class="m-2">New</label>
+
+              <input type="radio" id="No" value='Used' formControlName="CarLabel"  [(ngModel)]="carView.CarLabel" >
+              <label class="m-2">Used</label>
+            <div class="error-block"
+            *ngIf="CarLabel && (Nextclicked && CarLabel.invalid)">
+              Please Select Car's Label
+            </div>
+          </div>
+            <div class="form-group col-12" >
+              <label>KiloMeters</label>
+              <input type="text" class="form-control" formControlName="KiloMeter" [(ngModel)]="carView.KiloMeter">
+            <div class="error-block"
+            *ngIf="KiloMeter.invalid && (Nextclicked || KiloMeter.touched)">
+              Please Enter KiloMeter
+            </div>
+          </div>
+            <div class="form-group col-12">
+              <label>Model's Year</label>
+              <input type="text" class="form-control" formControlName="Modelyear" [(ngModel)]="carView.Modelyear">
+            <div class="error-block"
+            *ngIf="Modelyear.invalid && (Nextclicked || Modelyear.touched)">
+              Please Enter Model's Year
+            </div>
+          </div>
+            <button  type="button" class="btn btn-primary btn-block"
+                (click)="selectTab(2,CarDetails.valid)">Next</button>
+                <button  type="button" class="btn btn-primary btn-block"
+                (click)="selectTab(0,CarDetails.valid)">Back</button>
+          </tab>
+          <tab heading="Photos">
+
+            <div class="form-group col-12">
+              <div class="photo-control">
+                  <button class="mt-5" type="button">Upload</button> <br>
+                  This is under construction
+              </div>
+            </div>
+
+                <button  type="button" class="btn btn-primary btn-block"
+                (click)="selectTab(1,CarDetails.valid)">Back</button>
+                <button  type="reset" class="btn btn-primary btn-block">Cancel</button>
+                <button  type="submit" class="btn btn-primary btn-block">Save</button>
+
+          </tab>
+        </tabset>
+      </div>
+
+
+
+    </form>
+    </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card-header">
+      <h3>Your car preview</h3>
+    </div>
+      <div class="shadow-lg p-3 bg-white">
+        <app-property-card [property]="carView" [hideIcons]="true"></app-property-card>
+    </div>
+  </div>
+</div>
